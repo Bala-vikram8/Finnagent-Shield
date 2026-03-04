@@ -14,27 +14,6 @@ FinAgent Shield wraps your agents with a three-layer protection system:
 2. Adversarial input detection (direct injection, indirect via tool output, agent-to-agent)
 3. Structured compliance audit logging
 
-## Architecture
-
-```
-finagent-shield/
-├── framework/
-│   ├── models.py              Pydantic models for failures, runs, events
-│   ├── failure_classifier.py  Classifies failures into operational/reasoning/adversarial
-│   ├── circuit_breaker.py     Circuit breaker pattern adapted for agent pipelines
-│   ├── injection_detector.py  Detects prompt injection at every input boundary
-│   ├── recovery_strategies.py Maps failure types to recovery actions
-│   └── audit_logger.py        Structured SQLite audit log for compliance
-├── agents/
-│   ├── base_agent.py          AgentShield wrapper (apply to any agent)
-│   └── financial_agent.py     Example financial research agent
-├── dashboard/
-│   └── api.py                 FastAPI monitoring and audit API
-├── main.py                    CLI entry point
-├── config.py                  Environment configuration
-└── requirements.txt
-```
-
 ## Failure Taxonomy
 
 ### Operational Failures
